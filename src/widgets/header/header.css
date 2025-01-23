@@ -1,0 +1,16 @@
+.headerCont{
+    margin: 24px 0;
+}
+
+.shopName{
+    font-family: 'Integral CF Regular';
+    font-weight: 700;
+}
+
+.links{
+    gap: 24px;
+}
+
+.icons{
+    gap: 14px;
+}
