@@ -1,8 +1,12 @@
+import { Banner, DressStyle, NewArrivals, TopSelling } from "../widgets";
 
 export const HomePage = () => {
     return (
         <div>
-            <h1>Home page</h1>
+            <Banner />
+            <NewArrivals />
+            <TopSelling />
+            <DressStyle />
         </div>
     );
 }
