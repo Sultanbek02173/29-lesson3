@@ -68,3 +68,11 @@
     display: flex;
     gap: 14px;
 }
+
+.links .pageLinks{
+    position: absolute;
+    top: 25px;
+    z-index: 2;
+    background-color: rgb(221, 221, 221);
+    padding: 10px 20px;
+}
