@@ -1,17 +1,7 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { Card } from '../../../entities'
 import './casual.css'
 
-export const Casual = () => {
-    const [products, setProducts] = useState();
-    useEffect(() => {
-        axios('https://fakestoreapi.com/products')
-        .then(({data}) => setProducts(data))
-        .catch((error) => console.log(error))
-    }, [])
-    console.log(products);
-    
+export const Casual = ({products}) => {    
     return (
         <div className="casualBlock">
             <h1>Casual</h1>  
