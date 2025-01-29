@@ -24,3 +24,8 @@ body{
     justify-content: space-between;
     align-items: center;
 }
+
+.flexCont{
+    display: flex;
+    gap: 20px;
+}

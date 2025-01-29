@@ -1,9 +1,9 @@
-import { Casual } from "../widgets";
+import { Casual, Filter } from "../widgets";
 
 export const CategoryPage = () => {
     return (
-        <div>
-            <h1>Category page</h1>
+        <div className="container flexCont">
+            <Filter />
             <Casual />
         </div>
     );
