@@ -1,8 +1,10 @@
+import { InfoProduct, PhotoSection } from "../widgets";
 
 export const DetailPage = () => {
     return (
-        <div>
-            <h1>detail page</h1>
+        <div className="container flexCont">
+            <PhotoSection />
+            <InfoProduct />
         </div>
     );
 }

@@ -3,35 +3,51 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export const CategoryPage = () => {
-    const [products, setProducts] = useState();
-    const [filtered, setFiltered] = useState([]);
-    const [priceRange, setPriceRange] = useState([0, 500])
+    const [data, setData] = useState([]);
+    const [filteredData, setFilteredData] = useState([]);
+    const [priceRange, setPriceRange] = useState([0, 500]); 
     const [select, setSelect] = useState('all');
-
-    const filterProduct = () => {
-        if(select === 'all'){
-            const filter = products.filter((prod) => prod.price >= priceRange[0] && prod.price <= priceRange[1])
-            setFiltered(filter);
-        }else{
-            const filter = products.filter((prod) => prod.price >= priceRange[0] && prod.price <= priceRange[1] && prod.category === select)
-            setFiltered(filter);
-        }
-    }
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productsPerPage] = useState(6);
+    const [totalProducts, setTotalProducts] = useState(0);
 
     useEffect(() => {
         axios('https://fakestoreapi.com/products')
-        .then(({data}) => setProducts(data))
-        .catch((error) => console.log(error))
-    }, [])
+            .then(({ data }) => {
+                setData(data);
+                setFilteredData(data);
+                setTotalProducts(data.length);
+            })
+            .catch((error) => {
+                console.error("Failed to fetch products", error);
+            });
+    }, []);
 
-    useEffect(() => {
-        if(products) filterProduct()
-    })
+     const filterProducts = () => {
+        if(select === 'all'){
+            const filtered = data.filter(
+                (product) => product.price >= priceRange[0] && product.price <= priceRange[1]
+            );
+            setFilteredData(filtered);
+            setTotalProducts(filtered.length);
+        }else{
+            const filtered = data.filter(
+                (product) => product.price >= priceRange[0] && product.price <= priceRange[1] && product.category === select
+            );
+            setFilteredData(filtered);
+            setTotalProducts(filtered.length);
+        }
+            
+        setCurrentPage(1); 
+    };
     
     return (
-        <div className="container flexCont">
-            <Filter priceRange={priceRange} setPriceRange={setPriceRange} setSelect={setSelect} filterProduct={filterProduct} />
-            <Casual products={filtered}/>
+        <div className="container category">
+            <div className="flexItem">
+                <Filter filterProducts={filterProducts} priceRange={priceRange} setPriceRange={setPriceRange} setSelect={setSelect} />
+                <Casual currentPage={currentPage} productsPerPage={productsPerPage} totalProducts={totalProducts} filteredData={filteredData} setCurrentPage={setCurrentPage} />
+            </div>
+            
         </div>
     );
 }

@@ -6,3 +6,5 @@ export { TopSelling } from './home/topSelling/TopSelling';
 export { DressStyle } from './home/dressStyle/DressStyle';
 export { Casual } from './category/casual/Casual';
 export { Filter } from './category/filter/Filter';
+export { InfoProduct } from './detail/infoProduct/InfoProduct';
+export { PhotoSection } from './detail/photoSection/PhotoSection';
