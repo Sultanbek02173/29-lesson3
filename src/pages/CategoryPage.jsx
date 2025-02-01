@@ -5,7 +5,7 @@ import axios from "axios";
 export const CategoryPage = () => {
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
-    const [priceRange, setPriceRange] = useState([0, 500]); 
+    const [priceRange, setPriceRange] = useState([0, 10000]); 
     const [select, setSelect] = useState('all');
     const [currentPage, setCurrentPage] = useState(1);
     const [productsPerPage] = useState(6);

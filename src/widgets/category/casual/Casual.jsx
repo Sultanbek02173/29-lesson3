@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Card } from '../../../entities'
 import './casual.css'
 
@@ -17,6 +18,9 @@ export const Casual = ({ currentPage, productsPerPage, totalProducts, filteredDa
             setCurrentPage((prevPage) => prevPage - 1);
         }
     };
+
+    console.log(currentProducts);
+    
     return (
         <div className="casualBlock">
             <h1>Casual</h1>  
@@ -25,7 +29,9 @@ export const Casual = ({ currentPage, productsPerPage, totalProducts, filteredDa
                     currentProducts && 
                     currentProducts.map((item) => (
                         <div key={item.id}>
-                            <Card img={item.image} title={item.title} rate={item?.rating?.rate} price={item.price} />
+                            <Link to={`/detail/${item.id}`}>
+                                <Card img={item.image} title={item.title} grade={item?.rating?.rate} price={item.price} />
+                            </Link>
                         </div>
                     ))
                 }

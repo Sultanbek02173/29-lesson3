@@ -1,22 +1,22 @@
 import './photoSection.css';
 
-export const PhotoSection = () => {
+export const PhotoSection = ({ prod }) => {
     return (
         <div className='photoCont'>
             <div className='photoFlex'>
                 <div className='images'>
                     <div>
-                        <img src='' alt="" />     
+                        <img src={prod?.image} alt="" />     
                     </div>
                     <div>
-                        <img src='' alt="" />     
+                        <img src={prod?.image} alt="" />     
                     </div>
                     <div>
-                        <img src='' alt="" />     
+                        <img src={prod?.image} alt="" />     
                     </div>   
                 </div>
                 <div className='mainImg'>
-                    <img src='' alt="" />     
+                    <img src={prod?.image} alt="" />     
                 </div>
             </div>
         </div>

@@ -57,7 +57,7 @@ export const Filter = ({ filterProducts, priceRange, setPriceRange, setSelect })
                 <Slider 
                     range
                     min={0}
-                    max={500}
+                    max={10000}
                     value={priceRange}
                     onChange={setPriceRange}
                     allowCross={false}
